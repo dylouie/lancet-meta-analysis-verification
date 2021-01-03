@@ -1,0 +1,2 @@
+# lancet-meta-analysis-verification
+This consists of my attempts at replicating the results of the Lancet meta-analysis on physical distancing, face masks, and eye protection in reducing transmission of COVID-19. I also tried to derive the values made by the Dans, Herrera et al which circulated in social media and the news and was endorsed by the Inter-Agency Task Force for Emerging Infectious Diseases.
