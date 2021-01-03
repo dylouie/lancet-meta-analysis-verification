@@ -1,0 +1,51 @@
+Explaining / Appraising the Dans, Herrera et. al. on Preventive Interventions
+
+The percentages presented in this slide are seen also in the Department of Transportation as well as in other medical societies. The "Dans, Herrera et. al." may be a "mis-citation"; IATF may have intended to say "these findings are from these scientists" hence the "et. al.". This is not an official paper, but rather a derivation of the Lancet meta-analysis [1] using clinical epidemiologic methods - odds ratios and getting the relative risk reduction.
+
+Before proceeding to the calculations, let me explain what odds ratio (OR) is. The OR of an event from a certain factor is the ratio of rate of events among those with that factor over the rate of events among those without that factor. A good example is:
+- OR = (infections with physical distancing / total physical distancing) / (infections without physical distancing / total without physical distancing)
+- If OR > 1, then we say "physical distancing is associated with increased risk of infection". If OR < 1, then we say "physical distancing is associated with decreased risk of infection". In this case, since aOR = 0.18, then there is decreased risk of infection.
+
+I. Distancing
+
+Based on Figure 2 the Lancet meta-analysis,
+- 1 meter physical distancing: aOR = 0.18 (0.09-0.38)
+- The relative risk reduction (RRR) is 1 - aOR = 0.82; hence, 82% reduction.
+
+Based on the Table 2, rightmost column of the Lancet meta-analysis, there is the text "...for every 1 m further away in distancing, the relative effect might increase 2.02 times." This basically means that this can be incorporated the multiplication rule for odds (similar to probability), using the reciprocal of 2.02, namely (1/2.02).
+
+Therefore:
+- RRR of 2 meter physical distancing = 1 - 0.18 * (1/2.02) = 0.9108; hence 91% reduction.
+- RRR of 3 meter physical distancing = 1 - 0.18 * (1/2.02) * (1/2.02) = 0.9559; hence 96% reduction.
+
+II. N95 Mask, Non-N95 Mask, and Face Shield
+
+Based on Figure 5 of the Lancet meta-analysis,
+- N95 respirator: OR = 0.04 (0.004-0.30); hence 96% reduction.
+- Non-N95 mask: OR = 0.33 (0.17-0.61); hence 67% reduction.
+
+Based on Figure 6 of the Lancet meta-analysis,
+- Face Shield: aOR = 0.22 (0.12-0.39); hence 78% reduction.
+
+III. Combined Effects
+
+Note that the slide mentioned the following assumption:
+
+"Estimation of combined effects assumes INDEPENDENCE OF MECHANISMS OF ACTION, e.g. distancing won't make masks less effective."
+
+Hence, because these odds ratios are assumed to be independent, from basic combinatorics, P(A and B) = P(A) * P(B).
+
+Therefore:
+- RRR of 1 meter distancing + Non-N95 mask = 1 - 0.18 * 0.33 = 0.9406; hence 94% reduction.
+- RRR of 2 meters distancing + Non-N95 mask = 1 - 0.18 * (1/2.02) * 0.33 = 0.9705; hence 97% reduction.
+- RRR of Face Shield + Non-N95 mask = 1 - 0.22 * 0.33 = 0.9274; hence 93% reduction.
+- RRR of 1 meter distancing + Non-N95 mask + Face Shield = 1 - 0.18 * 0.33 * 0.22 = 0.9869; hence 99% reduction.
+- Open Air: OR = 0.05; hence 95% reduction. But I currently can't find the numbers for this part.
+- RRR of Non-N95 mask + Open Air = 1 - 0.33 * 0.05 = 0.9835; hence 98% reduction.
+
+My Personal Caveats / Comments:
+- In real life, these are NOT INDEPENDENT NOR ADDITIVE. There are overlapping mechanisms for face shields and face masks especially when they are worn together. Combining effects most likely leads to higher than estimated protection; it would be very difficult to have randomized controlled studies for this.
+- It's good that I am currently able to reproduce these methods. There may be less problem manually computing single point estimates (adjusted odds ratios), but multiplying these odds ratios means also multiplying confidence intervals. The models used in the calculation of each odds ratios are similar, so the confidence intervals are still technically valid. However, there IS a propagation of error and the tails are fatter. Fortunately, this is biased towards even lower odds ratios which means more protection. What this DOES NOT take into account are the mechanistic factors (i.e. virus particles sticking on the surface of face shields), and risks at the systemic level (which are better explained using S-E-I-R epidemiologic models).
+
+Reference Journal: 
+[1] Chu D, Akl E, Duda S et al. Physical distancing, face masks, and eye protection to prevent person-to-person transmission of SARS-CoV-2 and COVID-19: a systematic review and meta-analysis. The Lancet. 2020;395(10242):1973-1987. doi:10.1016/s0140-6736(20)31142-9
